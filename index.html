@@ -12,23 +12,32 @@
 <body class="bg-dark">
 
      <div class="preloader pt-10" id="preloader">
-          <div class="loading fg-crimson">
-               <div data-role="cube" data-flash-interval="250"></div>
+          <div class="loading fg-darkIndigo">
+               <div data-role="cube" data-flash-interval="250" data-flash-color="#aa00ff"></div>
                <h3 class="text-light">Loading Energon</h3>
           </div>
      </div>
 
 
-     <div class="container">
-          
-          <div class="row">
-               <div class="col">MD</div>
-          </div>
-     </div>
-
-
      <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
-     <script src="https://prime101.tech/wp-content/themes/wpmetroui/metro/js/main.js"></script>
+     <script>
+          $(window).load(function () {
+               $.ajax({
+                    method: "GET",
+                    url: "https://linktr.ee/optim_os",
+                    onSuccess: function (response) {
+                         console.log(response);
+                    },
+                    onFail: function (xhr) {
+                         console.log(xhr);
+                    }
+               })
+
+               setTimeout(() => {
+                    $(".preloader").fadeOut(500);
+               }, 3000);
+          });
+     </script>
 </body>
 
 </html>
